@@ -24,7 +24,7 @@ jobs:
     - name: Verificar Flutter
       run: flutter doctor
 
-    - name: Obtener dependencias
+    - name: Obtener dependenciasss
       run: |
         cd simulapp
         flutter pub get
