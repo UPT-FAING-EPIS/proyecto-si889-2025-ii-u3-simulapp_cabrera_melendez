@@ -1,0 +1,29 @@
+name: Publish Flutter Package to GitHub Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Crear paquete .zip
+      run: |
+        mkdir build_package
+        zip -r build_package/simulapp-${{ github.ref_name }}.zip simulapp/
+
+    - name: Subir paquete a GitHub Packages
+      uses: actions/upload-artifact@v4
+      with:
+        name: simulapp-${{ github.ref_name }}
+        path: build_package/simulapp-${{ github.ref_name }}.zip
