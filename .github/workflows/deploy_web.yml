@@ -37,7 +37,7 @@ jobs:
           cd simulapp
           flutter build web --release
 
-      - name: 🚀 Publicar en GitHub Pages
+      - name: 🚀 Publicar en GitHub Pagessss
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
